@@ -1,0 +1,27 @@
++ HTML Refresh
++ &lt;script&gt;
++ Promises
+	+ also async and await
++ jQuery
++ DOM
++ Ternary
++ Types
+	+ Arrays
+	+ JSON
+	+ Falsey
+	+ null (function parameters?)
+	+ undefined
++ Events
+	+ onclick
++ WebSockets
++ useful functions
+	+ split
+	+ splice
+	+ Math.everything
+	+ JSON.stringify, JSON.parse
++ let vs var?
++ semicolon; // Will talk about
++ Misty skill vs REST API
++ Misty skill meta files // Nope
++ Misty commands
+	- https://github.com/MistyCommunity/Hackathon/blob/master/Skill%20Sample/Skills.md

@@ -1,0 +1,13 @@
+{
+	"name": "Marley",
+	"email": "marleythemarmot@vvest.in",
+	"age": 10,
+	"fur": {
+		"descriptors": ["fuzzy", "soft", "thick"],
+		"color": "brown"
+	},
+	"location": {
+		"latitude": 200,
+		"longitude": 178
+	}
+}

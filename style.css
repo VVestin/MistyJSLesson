@@ -1,0 +1,76 @@
+.remark-slide-content {
+	background-color: black;
+	color: white;
+	padding: 0.5em 3em 0.5em 3em;
+}
+
+h1, h2, h3, h4, h5 {
+	color: orange;
+	font-family: "Comic Sans MS";
+	margin: 0.5em 0 0.5em 0;
+}
+
+h6 {
+	font-size: 20px;
+	font-family: Arial;
+}
+
+p, li {
+	font-size: 30px;
+	font-family: Arial;
+}
+
+.remark-code {
+	border: 3px solid orange;
+	padding: 3px !important;
+	background-color: black;
+}
+
+.bigger-code .remark-code {
+	font-size: 24px;
+}
+
+.remark-inline-code {
+	background-color: #222;
+	padding: 0 0.5em 0 0.5em;
+}
+
+/* These things modify the highlight.js 'arta' theme */
+.remark-code-line:nth-child(odd) {
+	background-color: #111;
+}
+.remark-code-line:nth-child(even) {
+	background-color: #080808;
+}
+.hljs-comment {
+	color: #555 !important;
+}
+.hljs-keyword {
+	color: #8548ff !important;
+}
+.hljs-title {
+	color: #e00070 !important;
+}
+/* End modifying hljs theme */
+
+.left-column {
+	width: 50%;
+	float: left;
+}
+
+.right-column {
+	width: 50%;
+	float: right;
+}
+
+.med-image img {
+	width: 300px;
+}
+
+a {
+	color: red;
+}
+
+a:visited {
+	color: maroon;
+}
