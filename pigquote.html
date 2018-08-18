@@ -14,22 +14,21 @@
 			font-size: 5em;
 			border: 3px solid white;
 		}
+
+		h1, h2 {
+			font-size: 3em;
+		}
 	</style>
 </head>
 <body>
-	<button id="generate"> Generate! </button>
+	<button id="get"> Get Quote! </button>
+	<br>
+	<br>
+	<br>
+	<h1 id="quote"></h1>
+	<h2 id="tags"></h2>
 	<script>
-		document.getElementById('generate').onclick = function() {
-			let xhttp = new XMLHttpRequest()
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4) {
-					resp = JSON.parse(this.responseText)
-					console.log(resp.quotes)
-				}
-			}
-			xhttp.open('GET', 'http://67.177.227.86:6213/quote', true)
-			xhttp.send()
-		}
+let quoteElem=document.getElementById('quote');let tagsElem=document.getElementById('tags');document.getElementById('get').onclick=function(){let xhttp=new XMLHttpRequest();xhttp.onreadystatechange=function(){if(this.readyState==4&&this.status==200){resp=JSON.parse(this.responseText);quoteElem.innerHTML='"'+pigLatin(resp.quote)+'"<br> - '+resp.author;tagsElem.innerHTML='Tags: '+resp.tags.join(', ')}};xhttp.open('GET','http://67.177.227.86:6213/quote',true);xhttp.send();console.log('requested random quote!')};function pigLatin(quote){let latin='';console.log('original: '+quote+'\n');words=quote.toLowerCase().replace(/[^a-z ]/g,'').trim().split(' ');for(let word of words){for(let i=0;i<word.length;i++){if('aeiouy'.includes(word[i])){if(i==0){latin+=word+'-ay '}else{latin+=word.slice(i)+'-'+word.slice(0,i)+'ay '}break}}}return latin}
 	</script>
 </body>
 </html>

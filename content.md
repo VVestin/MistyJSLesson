@@ -43,27 +43,41 @@ class: center, middle
 ![Misty II Robot](https://i1.wp.com/roboticsandautomationnews.com/wp-content/uploads/2018/05/misty-2.jpg?fit=338%2C480&ssl=1)
 ]
 ---
+# The Hackathon
+--
+
+- Next Saturday. 5 Teams from FTC
+--
+
+- 7ish hours of project work
+--
+
+- Helper from Misty
+--
+
+- Discovery session in the shape of a hackathon
+---
 # Goals
 --
 
-- Refresh yourself on JS Fundamentals
+- JS Fundamentals
 --
 
-- Learn some basic features Mr. H didn't teach
+- Basic features Mr. H didn't teach
 --
 
-- Get a quick peek at some advanced features
+- Peek at some advanced features
 --
 
-- Understand how Misty Robotics uses JS
+- Understand how Misty uses JS
 --
 
-- Gain a better understanding of how JS is used
+- Practice applying new techniques
 ---
 # Why/What is JavaScript?
 --
 
-_JavaScript_ is one of the most popular programming languages, mainly used for web development
+_JavaScript_ may be the most popular programming language of today
 --
 
 - Interpreted
@@ -78,17 +92,24 @@ _JavaScript_ is one of the most popular programming languages, mainly used for w
   - Now _Node.js_ is a popular back-end JS runtime
 --
 
-- Not directly related to _Java_
+- Not _Java_
 --
 
-- Standardized by the _ECMAScript_ specification (ES6)
+- _ECMAScript_ (ES6)
 --
-
-- Fun! (maybe)
---
-
 
 **But most importantly**, JS is what we need in order to program the Misty I
+---
+# .exer[developer console - Just do it!]
+--
+
+- .exer[Open with `ctrl-shift-I`]
+--
+
+- .exer[Find the console and hack away]
+--
+
+- **REPL** - Read, Evaluate, Print Loop
 ---
 # Here's some code
 
@@ -157,7 +178,7 @@ lines, which the others don't do`
 ### Literals:
 ```
 13
-3.14
+-3.14
 Infinity
 NaN
 ```
@@ -169,7 +190,7 @@ NaN
 1.57 * 2   // 3.14
 -1 / 0     // -Infinity
 10 - 'hi'  // NaN
-11 % 3     // 1
+11 % 3     // 2
 2 ** 7     // 128
 -5         // -5
 +10        // 10
@@ -190,6 +211,11 @@ Math.max(13, 2)  // 13
 Math.min(13, 22) // 13
 Math.pow(13, 2)  // 169 (use ** instead)
 ```
+]
+--
+
+.exer[
+Just... Do It - Write an expression for a random integer between 0 and the larger of 2^32 and 3^20
 ]
 ---
 # Booleans
@@ -217,11 +243,11 @@ true || false
 # Special "types" / values
 --
 
-- `undefined` is a special empty value assigned by JS when it doesn't have a value for something
+- `undefined` is assigned by JS
 --
 
 
-- `null` is a special empty value which can be assigned to a variable to flag it as "empty" or "clear" its value
+- `null` flag something as "empty" or "clears" its value
 --
 
 
@@ -240,7 +266,7 @@ console.log(negativeRoot) // null
 # Type conversions
 --
 
-Conversions happen implicitly all the time. Use the `Number`, `String`, and `Boolean` functions to force a conversion
+Conversions happen implicitly all the time
 --
 
 ```
@@ -256,6 +282,8 @@ Conversions happen implicitly all the time. Use the `Number`, `String`, and `Boo
 'soo many big' -> NaN
 true -> 1
 false -> 0
+null -> 0
+undefined -> NaN
 ```
 --
 
@@ -266,7 +294,45 @@ undefined -> 'undefined'
 true -> 'true'
 ```
 ---
-# Some tricky tricksters
+# .exer[Tricky tricksters!]
+--
+
+.bigger-code[
+.left-column[
+```
+10 - true         // 
+10 + '6'          // 
+1 < 2 < 3         // (A)
+3 > 2 > 1         // (B)
+5 / '2'           // (C)
+5 - '2'           // 
+!!0               // (D)
+null || ''        // 
+NaN || 0          //
+' ' && 1          // (E)
+```
+]
+.right-column[
+```
+-'\n'             //
++undefined        //
+'1' + 2 + 3       // (F)
+1 + 2 + '3'       // (G)
+true + true       //
+// Strict Equality :)
+1 == '1.0'        // (H)
+1 === '1.0'       //
++null == false    //
++null === false   //
+```
+]]
+--
+
+.exer[
+For (A)-(H), think what the answer is and then try it
+]
+---
+# Tricky tricksters!
 --
 
 .bigger-code[
@@ -281,7 +347,7 @@ true -> 'true'
 !!0               // false
 null || ''        // ''
 NaN || 0          // 0
-' ' && !undefined // true
+' ' && 1          // 1
 ```
 ]
 .right-column[
@@ -302,7 +368,7 @@ true + true       // 2
 # Variables: `var` vs `let`
 --
 
-`var` and `let` are both keywords for declaring a variable. `let` is more modern and should be preferred
+`let` is more modern and should be preferred
 --
 
 - `var` uses _functional_ scope
@@ -311,23 +377,16 @@ true + true       // 2
 - `let` uses _block_ scope
 --
 
-- Quite a few other cool, but subtle differences
---
-
 
 ```
 function dontWorryAboutMeImaFunction() {
-	var a = 'apples'
-	let b = 'banannas'
 	if (true) {
 		var c = 'cantaloupe'
 		let d = 'didgeridoo'
 	}
 
-	a += ' are fruit' // OK
-	b += ' are food'  // OK
 	c += ' are good'  // OK
-	d += ' are mood'  // ERROR: d is not defined
+	d += ' are fun'  // ERROR: d is not defined
 }
 ```
 ---
@@ -397,20 +456,17 @@ console.log('magic 8 ball says to ' + message)
 
 .bigger-code[
 ```
-let i = 1
-while (i <= 50) {
-    console.log((i % 3 == 0 ? 'Fizz' : '') +
-                (i % 5 == 0 ? 'Buzz' : '') || i)
-    i++
-}
-
-// Equivalent grossness, but with a for loop //
 for (let i = 1; i <= 50; i++) {
     console.log((i % 3 == 0 ? 'Fizz' : '') + 
                 (i % 5 == 0 ? 'Buzz' : '') || i)
 }
 ```
 ]
+---
+# .exer[Just Do FizzBuzz]
+--
+
+- You must use: `if`, `while`, and `alert`
 ---
 # Function Declarations
 --
@@ -486,12 +542,14 @@ sayHello('Weston', sayHello)
 # The Callback Pattern
 --
 
-A callback is a function argument to be called later (often when the function is finished)
+A callback is a function passed as a parameter to and called by another function
 --
 
+
+.bigger-code[
 ```
 function flipCoin(p, heads, tails) {
-	if (Math.random() > p) {
+	if (Math.random() < p) {
 		heads()
 	} else {
 		tails()
@@ -506,6 +564,29 @@ flipCoin(0.6,
 		console.log('Tails, you win :(')
 	})
 ```
+]
+---
+# .exer[Write a sleep function]
+--
+
+- `sleep` should suspend for an amount of time (use a long for loop)
+--
+
+- Then it should call a "done" callback
+--
+
+
+.bigger-code[
+```
+function sleep(done) {
+	// You write this code
+}
+
+sleep(function() {
+	console.log('finished')
+})
+```
+]
 ---
 # Objects
 --
@@ -551,14 +632,14 @@ programmer.key = 'new value'
 .bigger-code[
 ```
 {
-	id: 10,
-	type: 'subscribe',
-	dimensions: {
-		width: 400,
-		height: 300,
+	"id": 10,
+	"type": "normal",
+	"dimensions": {
+		"width": 400,
+		"height": 300,
 	},
-	block: true,
-	pages: [13, 26, 169], // Array :P
+	"block": true,
+	"pages": [13, 26, 169], // Array :P
 }
 ```
 ]
@@ -566,9 +647,13 @@ programmer.key = 'new value'
 # JSON parse and stringify
 --
 
-JavaScript has a way to convert between strings of JSON and JS Objects: `JSON.parse` and `JSON.stringify`
-
+- `JSON.parse` 
 --
+
+- `JSON.stringify`
+--
+
+
 .bigger-code[
 ```
 let me = {
@@ -583,7 +668,7 @@ let me = {
 let myString = JSON.stringify(me)
 console.log(myString) // {"name":"Weston","age":18...
 
-let pos = JSON.parse('{x: 13, y: 169}')
+let pos = JSON.parse('{"x": 13, "y": 169}')
 console.log(pos.x + ', ' + pos.y) // 13, 169
 ```
 ]
@@ -591,10 +676,10 @@ console.log(pos.x + ', ' + pos.y) // 13, 169
 # `this` keyword
 --
 
-- The value of a property can be a function! A function which is the property of an object is called a _method_
+- functions on objects are _methods_
 --
 
-- Similar to Java, `this` refers to the object the method is a property of (most of the time)
+- `this` is the object the method is a property of
 --
 
 
@@ -616,16 +701,13 @@ cat.makeSound()
 # Constructor functions 
 --
 
-- A good way to define lots of similar objects is with a constructor function
---
-
 - Not meant to be called as a function at all
 --
 
 - Invoke with `new` keyword
 --
 
-- Builds an object with `this` keyword
+- Returns its `this`
 --
 
 
@@ -685,8 +767,8 @@ The other "types" like arrays and functions are really just objects!
 #### Operations
 .bigger-code[
 ```
-let friends = ['Makenna', 'Ainsley', 'Mathew']
-console.log(friends[1] + ' likes PHP? :(')
+let friends = ['Makenna', 'Ainsley', 'Matthew']
+console.log(friends[0] + ' likes PHP? :(')
 friends[friends.length - 1] += ' Chen'
 ```
 ]
@@ -731,7 +813,7 @@ setTimeout(function() {
     <p class="boring-info"> 
 		lorem upspin or something......... 
 	</p>
-    <button type="button" id="go-btn">Go!</button>
+    <button id="go-btn">Go!</button>
   </body>
 </html>
 ```
@@ -749,13 +831,10 @@ The __Document Object Model__ (DOM) is used to interact with the contents of the
 - Consists of DOM elements and their connections
 --
 
-- `document.getElementByID(..)` to select elements
+- `document.getElementByID(..)`
 --
 
-- DOM elements have an `innerHTML` property, which you can access and modify
---
-
-- And much more
+- DOM elements have an `innerHTML` property
 --
 
 
@@ -770,13 +849,13 @@ title.innerHTML = 'The Dope Object Model'
 # Events
 --
 
-- JS is an _Event Driven_ language
+- JS is _Event Driven_ 
 --
 
-- Events handlers are functions tied to objects that "fire" when the event occurs
+- Events handlers "fire" when the event occurs
 --
 
-- `onclick`, `onchange`, `onmessage`, `onclose`, `onsubmit`
+- `onclick`, `onchange`, `onmessage`, `onsubmit`
 --
 
 
@@ -808,9 +887,6 @@ button.onmouseover = function() {
 --
 
 - __Asynchronous JavaScript And XML__
---
-
-- Make requests to the server without reloading the page
 --
 
 
@@ -866,13 +942,10 @@ ws.send('turn me into pig latin')
 # JavaScript on the server?!
 --
 
-- Yeah, you can do that! A popular way is with Node.js
+- Node.js
 --
 
-- Node is a JS runtime using the Chrome V8 engine
---
-
-- Still JS, but with a different runtime environment
+- JS Runtimes and Engines
 --
 
 - This might be how we write code on the Misty?
@@ -912,27 +985,21 @@ ws.send('turn me into pig latin')
 # Applying this to Misty!
 --
 
-- Control the Misty I through the REST API
+- Misty I REST API
 --
 
-  - Make a web app with user input / output
+  - Web app with user input / output
 --
 
   - Access the API with AJAX and WebSockets
 --
 
-- Control the Misty I by giving it _Skills_
---
-
-  - Skills are JS apps that run directly on the Misty I
---
-
-  - A web app accessing the REST API calls Misty Skills
+- Misty _Skills_
 ---
 # LightClient
 --
 
-_lightClient.js_ is a helpful JS library for interacting with the REST API
+_lightClient.js_ - a JS library for interacting with the REST API
 --
 
 - Let's take a look: [lightClient.js](https://github.com/MistyCommunity/Hackathon/blob/master/Assets/javascript/lightClient.js)
@@ -993,9 +1060,14 @@ stopBtn.onclick = function() {
 ```
 ]
 ---
-# A Misty WebSocket example
----
-# Pruned API reference
+# Pruned REST API reference
+--
+
+- POST `led/change` set rgb of LED
+--
+
+- POST `audio/play` play an audio clip from the Misty
+
 ---
 # Project Time!
 --
@@ -1003,8 +1075,8 @@ stopBtn.onclick = function() {
 When the user hits a button, your webpage gets a random quote (using AJAX), converts it to piglatin, and then displays it. Example: http://vvest.in/pigquote.html
 --
 
-- Access [this](https://opinionated-quotes-api.gigalixirapp.com/v1/quotes) REST API for random opinionated quotes:
-  - `https://opinionated-quotes-api.gigalixirapp.com/v1/quotes`
+- Access this REST API for random opinionated quotes:
+  - `https://vvest.in/quotes`
 --
 
 
@@ -1121,5 +1193,6 @@ async function doSomething() {
 - [Khan Academy JS (with graphics)](https://www.khanacademy.org/computing/computer-programming)
 - [comprehensive JS review](https://javascript.info/js)
 - [writing Misty skills](https://github.com/MistyCommunity/Hackathon/blob/master/Skill%20Sample/Skills.md)
-- [Misty REST API Reference](https://documenter.getpostman.com/view/3743818/RWEgpdTW#ea0ff3b1-b3a2-b50b-5347-75dc19b62681)
+- [Misty REST API reference](https://docs.mistyrobotics.com/apis/api-reference/rest/)
+- [Misty skills command reference](https://docs.mistyrobotics.com/apis/api-reference/all-functions/)
 - [Misty Examples](https://github.com/MistyCommunity/MistyI/tree/master/Skills) (These "skills" don't run on the robot)

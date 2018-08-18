@@ -25,3 +25,14 @@
 + Misty skill meta files // Nope
 + Misty commands
 	- https://github.com/MistyCommunity/Hackathon/blob/master/Skill%20Sample/Skills.md
+
+Exercises:
++ Start the developer console (REPL)
++ Actually do the tricky tricksters
++ Gimme a random integer between 1 and the max of 2^32 and 3^20
++ Do FizzBuzz with if, loops, alert
+- Callback exercise
+- JSON convert yourself into JSON and back
+- Google.com onclick
+
+

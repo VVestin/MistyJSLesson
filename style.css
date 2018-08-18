@@ -67,6 +67,11 @@ p, li {
 	width: 300px;
 }
 
+.exer p, .exer li, .exer {
+	font-family: "Voces";
+	color: #f33;
+}
+
 a {
 	color: red;
 }
