@@ -98,6 +98,7 @@ _JavaScript_ may be the most popular programming language of today
 - _ECMAScript_ (ES6)
 --
 
+
 **But most importantly**, JS is what we need in order to program the Misty I
 ---
 # .exer[developer console - Just do it!]
@@ -333,7 +334,6 @@ For (A)-(H), think what the answer is and then try it
 ]
 ---
 # Tricky tricksters!
---
 
 .bigger-code[
 .left-column[
@@ -378,17 +378,19 @@ true + true       // 2
 --
 
 
+.bigger-code[
 ```
 function dontWorryAboutMeImaFunction() {
 	if (true) {
-		var c = 'cantaloupe'
-		let d = 'didgeridoo'
+		var a = 'cantaloupe'
+		let b = 'didgeridoo'
 	}
 
-	c += ' are good'  // OK
-	d += ' are fun'  // ERROR: d is not defined
+	a += ' are good'  // OK
+	b += ' are fun'   // ERROR: d is not defined
 }
 ```
+]
 ---
 # Simple output
 --
@@ -463,7 +465,7 @@ for (let i = 1; i <= 50; i++) {
 ```
 ]
 ---
-# .exer[Just Do FizzBuzz]
+# .exer[Dew-it: FizzBuzz]
 --
 
 - You must use: `if`, `while`, and `alert`
@@ -471,7 +473,7 @@ for (let i = 1; i <= 50; i++) {
 # Function Declarations
 --
 
-JS functions do normal functiony things like arguments, returns, and recursion
+functiony things like _arguments_, _returns_, and _recursion_
 --
 
 .bigger-code[
@@ -487,14 +489,14 @@ function fib(n) {
 		return 1
 	return fib(n - 1) + fib(n - 2)
 }
-// The above example is bad :(
+// The above example is bad. Help :(
 ```
 ]
 ---
 # Function Expressions
 --
 
-A function expression leaves out the name of the function: `function(args) {...}`
+Also called anonymous functions or function literals: `function(args) {...}`
 --
 
 .bigger-code[
@@ -566,7 +568,7 @@ flipCoin(0.6,
 ```
 ]
 ---
-# .exer[Write a sleep function]
+# .exer[Do: Write a sleep function]
 --
 
 - `sleep` should suspend for an amount of time (use a long for loop)
@@ -673,6 +675,17 @@ console.log(pos.x + ', ' + pos.y) // 13, 169
 ```
 ]
 ---
+# .exer[Objectify yourself!]
+--
+
+- .exer[Make an object that is _you_!]
+--
+
+- .exer[Convert it to a JSON string with `JSON.stringify`]
+--
+
+- .exer[Email it to yourself.] Later, you can `JSON.parse` it
+---
 # `this` keyword
 --
 
@@ -774,6 +787,11 @@ friends[friends.length - 1] += ' Chen'
 ]
 
 ---
+# .exer[Fibonacci again!]
+--
+
+- .exer[Populate an array with the first 50 fibonaci numbers]
+---
 # Some useful functions
 --
 
@@ -819,6 +837,14 @@ setTimeout(function() {
 ```
 ]
 ---
+# .exer[Make a webpage]
+--
+
+- .exer[Go to http://jsbin.com]
+--
+
+- .exer[Add a &lt;h1&gt; tag id="quote" and put a quote inside]
+---
 # The DOM
 --
 
@@ -831,7 +857,7 @@ The __Document Object Model__ (DOM) is used to interact with the contents of the
 - Consists of DOM elements and their connections
 --
 
-- `document.getElementByID(..)`
+- `document.getElementByID(...)`
 --
 
 - DOM elements have an `innerHTML` property
@@ -845,6 +871,10 @@ let title = document.getElementById('the-dom')
 title.innerHTML = 'The Dope Object Model'
 ```
 ]
+--
+
+
+.exer[Do it now: Go back to your jsbin and use JS to change the content of your quote element]
 ---
 # Events
 --
@@ -872,6 +902,10 @@ button.onmouseover = function() {
 }
 ```
 ]
+--
+
+
+.exer[Do it now: Go back to your jsbin and add a button that changes the quote element]
 ---
 # Webpage requests
 --
@@ -916,7 +950,7 @@ function fetchAndLogMarmot() {
 # Using a Websocket
 --
 
-- Open a WebSocket with `new WebSocket(..)`
+- Open a WebSocket with `new WebSocket(...)`
 --
 
 - Use `ws://` for the _protocol_
@@ -938,6 +972,10 @@ ws.onmessage = function(event) {
 ws.send('turn me into pig latin')
 ```
 ]
+--
+
+
+.exer[Do it now: connect to my piglatin WebSocket and try it]
 ---
 # JavaScript on the server?!
 --
@@ -946,6 +984,9 @@ ws.send('turn me into pig latin')
 --
 
 - JS Runtimes and Engines
+--
+
+- Turtles all the way down
 --
 
 - This might be how we write code on the Misty?
@@ -1060,23 +1101,35 @@ stopBtn.onclick = function() {
 ```
 ]
 ---
-# Pruned REST API reference
+# Sample of REST API
 --
 
 - POST `led/change` set rgb of LED
 --
 
 - POST `audio/play` play an audio clip from the Misty
-
----
-# Project Time!
 --
 
-When the user hits a button, your webpage gets a random quote (using AJAX), converts it to piglatin, and then displays it. Example: http://vvest.in/pigquote.html
+- POST `drive/time` drive for for a specified duration
+--
+
+- GET `info/devices` retrieves robot info
+--
+
+- POST `beta/faces/detection/start`
+--
+
+- GET `beta/faces` retrieves a list of names of faces
+
+---
+# .exer[Project Time!]
+--
+
+When the user hits a button, your webpage gets a random quote (using AJAX), converts it to piglatin, and then displays it. Example: http://67.177.227.86:8013/pigquote.html
 --
 
 - Access this REST API for random opinionated quotes:
-  - `https://vvest.in/quotes`
+  - `http://67.177.227.86:6213/quotes`
 --
 
 
@@ -1188,6 +1241,7 @@ async function doSomething() {
 ]
 ---
 # Further Reading
+- [Reread this guide (www.vvest.in)](http://www.vvest.in)
 - [light JS review](https://javascript.info/javascript-specials)
 - [beginner JS practice](https://www.codecademy.com/learn/introduction-to-javascript)
 - [Khan Academy JS (with graphics)](https://www.khanacademy.org/computing/computer-programming)
